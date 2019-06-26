@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using BlazorClean.Data;
+using BlazorClean.Services;
+using MediatR;
 
 namespace BlazorClean
 {
@@ -20,7 +22,9 @@ namespace BlazorClean
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+            services.AddMediatR(typeof(Startup));
             services.AddSingleton<WeatherForecastService>();
+            services.AddSingleton<CounterService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
